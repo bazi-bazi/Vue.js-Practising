@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <title>Vue Event Modifier</title>
+</head>
+<body>
+<div id="app">
+   <h2>
+   <a href="http//:google.com" target="_blank" v-on:click="clickOnGoogle">google.com</a><br />
+   <a href="http//:yahoo.com" target="_blank" v-on:click.prevent="">yahoo.com</a>
+   </h2>
+   <br />
+ <h2 v-on:mousemove="handleMouseMove">
+   X: {{ x }} \ Y: {{ y }}
+ </h2>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      x: 0,
+      y: 0
+
+    },
+    methods: {
+      clickOnGoogle: function(event) {
+        event.preventDefault()
+      },
+      handleMouseMove: function(event) {
+        this.x = event.clientX
+        this.y = event.clientY
+      }
+    }
+
+
+  })
+
+</script>
+
+</body>
